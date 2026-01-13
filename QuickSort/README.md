@@ -1,4 +1,4 @@
-# c
+# C PROGRAM - QUICK SORT
 
 ```c
 #include<stdio.h>
@@ -52,6 +52,7 @@ int main()
 }
 ```
 # c++ PROGRAM - QUICK SORT
+
 ```CPP
 #include <iostream>
 using namespace std;
@@ -98,7 +99,8 @@ int main() {
 }
 ```
 
-# JAVA PROGRAM QUICK SORT
+# JAVA PROGRAM - QUICK SORT
+
 ```java
 class QuickSort {
 
