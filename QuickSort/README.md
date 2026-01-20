@@ -101,7 +101,7 @@ int main() {
 
 # JAVA PROGRAM - QUICK SORT
 
-```java
+```java 
 class QuickSort {
 
     static void swap(int[] arr, int i, int j) {
