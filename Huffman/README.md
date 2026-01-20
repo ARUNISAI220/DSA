@@ -1,4 +1,4 @@
-``` JAVA
+``` java
 import java.util.*;
 class node{
 
