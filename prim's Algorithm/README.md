@@ -1,6 +1,128 @@
+# C PROGRAM
+```
+#include <stdio.h>
+#include <limits.h>
+#include <stdbool.h>
+
+#define V 5
+
+int minKey(int key[], bool inMST[]) {
+    int min = INT_MAX, min_index = -1;
+
+    for (int v = 0; v < V; v++) {
+        if (!inMST[v] && key[v] < min) {
+            min = key[v];
+            min_index = v;
+        }
+    }
+    return min_index;
+}
+
+void primMST(int graph[V][V]) {
+    int parent[V];
+    int key[V];
+    bool inMST[V];
+
+    for (int i = 0; i < V; i++) {
+        key[i] = INT_MAX;
+        inMST[i] = false;
+    }
+
+    key[0] = 0;
+    parent[0] = -1;
+
+    for (int count = 0; count < V - 1; count++) {
+        int u = minKey(key, inMST);
+        inMST[u] = true;
+
+        for (int v = 0; v < V; v++) {
+            if (graph[u][v] && !inMST[v] && graph[u][v] < key[v]) {
+                parent[v] = u;
+                key[v] = graph[u][v];
+            }
+        }
+    }
+
+    for (int i = 1; i < V; i++) {
+        printf("%d - %d\n", parent[i], i);
+    }
+}
+
+int main() {
+    int graph[V][V] = {
+        {0, 2, 0, 6, 0},
+        {2, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {6, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0}
+    };
+
+    primMST(graph);
+    return 0;
+}
+```
 # C++ - PROGRAM
 ```
+#include <iostream>
+#include <climits>
+using namespace std;
 
+#define V 5
+
+int minKey(int key[], bool inMST[]) {
+    int min = INT_MAX, min_index = -1;
+
+    for (int v = 0; v < V; v++) {
+        if (!inMST[v] && key[v] < min) {
+            min = key[v];
+            min_index = v;
+        }
+    }
+    return min_index;
+}
+
+void primMST(int graph[V][V]) {
+    int parent[V];
+    int key[V];
+    bool inMST[V];
+
+    for (int i = 0; i < V; i++) {
+        key[i] = INT_MAX;
+        inMST[i] = false;
+    }
+
+    key[0] = 0;
+    parent[0] = -1;
+
+    for (int count = 0; count < V - 1; count++) {
+        int u = minKey(key, inMST);
+        inMST[u] = true;
+
+        for (int v = 0; v < V; v++) {
+            if (graph[u][v] && !inMST[v] && graph[u][v] < key[v]) {
+                parent[v] = u;
+                key[v] = graph[u][v];
+            }
+        }
+    }
+
+    for (int i = 1; i < V; i++) {
+        cout << parent[i] << " - " << i << endl;
+    }
+}
+
+int main() {
+    int graph[V][V] = {
+        {0, 2, 0, 6, 0},
+        {2, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {6, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0}
+    };
+
+    primMST(graph);
+    return 0;
+}
 ```
 
 # JAVA-PROGRAM 
