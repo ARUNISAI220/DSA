@@ -51,7 +51,7 @@ int main()
 
 }
 ```
-# c++ PROGRAM - QUICK SORT
+# C++ PROGRAM - QUICK SORT
 
 ```CPP
 #include <iostream>
